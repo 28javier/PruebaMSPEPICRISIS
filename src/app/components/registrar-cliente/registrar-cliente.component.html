@@ -1,0 +1,36 @@
+<button class="btn btn-primary mt-4" routerLink="/">Regresar</button>
+
+<div class="card mt-4">
+    <div class="card-header">Agrega un Cliente</div>
+    <div class="card-body">
+        <form class="row g-3" (ngSubmit)="addCliente()" [formGroup]="miFormulario" autocomplete="off">
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Cédula</label>
+                <input type="number" class="form-control" id="inputEmail4" placeholder="Ingrese su Cédula"
+                    formControlName="cedula" maxlength="10" required>
+                <span class="form-text text-danger" *ngIf="validarCampos('cedula')">La cedula
+                    debe contener solo los 10 digitos</span>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputPassword4" formControlName="nombre">
+                <span class="form-text text-danger" *ngIf="validarCampos('nombre')">El nombre es Obligatorio</span>
+
+            </div>
+            <div class="col-6">
+                <label for="inputAddress" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Ingrese su Nombre"
+                    formControlName="edad" pattern="[0-9]+">
+                <span class="form-text text-danger" *ngIf="validarCampos('edad')">La edad es Obligatoria y solo se
+                    aceptan números.</span>
+
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Agregar Cliente</button>
+            </div>
+
+        </form>
+    </div>
+</div>
